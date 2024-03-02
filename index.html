@@ -21,66 +21,71 @@
         </nav>
     </header>
 
+
     <main>
-        <section>
-            <article class="dolar">
-                <h2>Dolar</h2>
-                <img src="images/H-k8sCNMx_1256x620__1.jpg" alt="">
-                <div class="compraYventa">
-                    <div class="tipo">
-                        <h5 class="compra">Compra</h5><h5 class="venta">Venta</h5>
+        <section id="sectionCotizacion">
+            <p class="cotizacionDelDia">Cotización del día</p>
+            <div id="cotizacion">
+                <article id="intro">
+                        <div></div>
+                        <p>$</p>
+                        <h2>Moneda</h2>
+                        <p>Compra</p>
+                        <p>Venta</p>
+                </article>
+                <article id="moneda">
+    
+                </article>
+            </div>
+        </section>
+
+        <section id="realizarCambio">
+            <article>
+                <div>
+                    <div>
+                        <select id="monedaSelect">
+                            <option selected disabled>Selecciona una moneda</option>
+
+                        </select>
                     </div>
-                    <div class="precios">
-                        <p class="precioCompra">$820.50</p><p class="precioVenta">$823.50</p>
+                    <div>
+                        <select id="compra-venta">
+                            <option selected disabled>Selecciona una operación</option>
+                            <option value="comprar">Comprar</option>
+                            <option value="vender">Vender</option>
+                        </select>   
+                    </div>
+                    <div id="cantidad-monto">
+                        <label >$</label>
+                        <input id="monto" type="number">
+                        <p>*minimo de $100 por operación*</p>
+                        <p>**monto de la moneda seleccionada**</p>
                     </div>
                 </div>
-            </article>
-            <article class="euro">
-                <h2>Euro</h2>
-                <img src="images/DMEZ4i0la_2000x1500__1.jpg" alt="">
-                <div class="compraYventa">
-                    <div class="tipo">
-                        <h5 class="compra">Compra</h5><h5 class="venta">Venta</h5>
-                    </div>
-                    <div class="precios">
-                        <p class="precioCompra">$890.50</p><p class="precioVenta">$895.80</p>
-                    </div>
+                <div id="botones">
+                    <button id="click">Realizar</button>
+                    <button type="button" id="borrarH">Borrar historial</button>
+                </div>
+                <div id="resultado">
+                    <span id="resultadoOK" style="display: none;">¡¡Transacción realizada!!</span>
+                    <span id="resultadoTipo"></span>
                 </div>
             </article>
-            <article class="real">
-                <h2>Real</h2>
-                <img src="images/real-brasileno-1200jpg.webp" alt="">
-                <div class="compraYventa">
-                    <div class="tipo">
-                        <h5 class="compra">Compra</h5><h5 class="venta">Venta</h5>
-                    </div>
-                    <div class="precios">
-                        <p class="precioCompra">$170.45</p><p class="precioVenta">$180.45</p>
-                    </div>
-                </div>
-            </article>
-            <article class="libra">
-                <h2>Libra</h2>
-                <img src="images/istockphoto-1291891378-1024x1024.jpg" alt="">
-                <div class="compraYventa">
-                    <div class="tipo">
-                        <h5 class="compra">Compra</h5><h5 class="venta">Venta</h5>
-                    </div>
-                    <div class="precios">
-                        <p class="precioCompra">$1042.50</p><p class="precioVenta">$1048.80</p>
-                    </div>
+        </section>
+
+        <section class="historial">
+            <article>
+                <div id="historial" style="display: flex; flex-direction: column-reverse;">
+
                 </div>
             </article>
         </section>
     </main>
 
     <footer>
-        <div>
-            <img src="" alt="">
-        </div>
+
     </footer>
-    <script src="js/index.js">
-        alert('<%: TempData["Resultat"]%>');
-    </script>
+
+    <script src="js/index.js"></script>
 </body>
 </html>

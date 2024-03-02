@@ -1,60 +1,156 @@
-main {
-    padding: 40px;
-    section {
-        border-radius: 50px;
-        background-color: #8598cd;
-        height: 80vh;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
-        grid-template-areas:
-            "dolar" "euro" "real" "libra";
-        .dolar,
-        .euro,
-        .libra,
-        .real {
+#sectionCotizacion{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    #cotizacion{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        #intro {
             display: flex;
-            align-items: center;
+            gap: 5rem;
+            background-color: #343E6B;
             justify-content: center;
-            flex-direction: column;
-            h2{
-                font-size: 50px;
-                display: flex;
-                align-items: baseline;
-                justify-content: center;
-                color: #2d2d2d;
-                border-bottom: 5px solid #2d2d2d;
+            align-items: center;
+            padding: 0 5rem;
+            border-radius: 1rem;
+            height: 3rem;
+            div{
+                position: absolute;
+                width: 100%;
+                border-bottom: 10px solid #343E6B;
             }
-            img{    
-                height: 50%;
-                width: 80%;
-                margin: 20px;
-                border-radius: 10px;
-            }
-            .compraYventa {
-                display: grid;
-                display: flex;
+            h2, p{
+                display: inline-flex;
                 flex-direction: row;
-                    .tipo {
-                        .compra,
-                        .venta {
-                            font-size: 30px;
-                            padding: 10px;
-                            border: 1px solid #343E6B;
-                            color: #343E6B;
-                        }
-                    }
-                    .precios {
-                        .precioCompra,
-                        .precioVenta {
-                            font-size: 30px;
-                            padding: 10px;
-                            border: 1px solid #343E6B;
-                            color: #343E6B;
-                        }
-                    }
-                }
-            
+                font-size: 2.2rem;
+                color:  #8598cd;
+                position: relative;
+            }
         }
+    }
+    #moneda{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .tipoMoneda{
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5rem;
+            border-bottom: 2px solid #8598cd;
+            height: 4rem;
+            h3, p{
+                font-size: 2rem;
+                color: #8598cd;
+            }
+        }
+    }
+}
+p{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+h2, h3{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+.cotizacionDelDia{
+    justify-content: center;
+    font-size: 4rem;
+    display: flex;
+    padding-bottom: 10px;
+    color: #343E6B;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    width: auto;
+}
+
+#realizarCambio{
+    padding-top: 5rem;
+    article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 10px solid #343E6B;
+        div{
+            display: flex;
+            padding: 0 1rem;
+            font-size: 1.6rem;
+            align-items: baseline;
+            select{
+                font-size: 1.6rem;
+                border-radius: 10px;
+                background-color: #8598cd;
+                width: 20rem;
+                border: 0;
+            }
+        }
+    }
+        #cantidad-monto{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            label{
+                position: absolute;
+                padding: 0 10px;
+                align-self: flex-start;
+            }
+            input{
+                border: 0;
+                margin: 0;
+                font-size: 1.6rem;
+                border-radius: 10px;
+                background-color: #8598cd;
+                padding-left: 25px;
+                margin-left: 2px;
+                width: 20rem;
+            }
+            p{
+                padding-top: 5px;
+                font-size: 0.8rem;
+                width: max-content;
+            }
+        }
+        #botones {
+            gap: 40px;
+            button {
+                font-size: 1.6rem;
+                border-radius: 10px;
+                background-color: #8598cd;
+                margin-top: 30px;
+                width: max-content;
+                padding: 5px 20px;
+            }
+        }
+        #resultado{
+            margin: 2rem 0;
+            width: 60%;
+            height: 200px;
+            background-color: #8598cd;
+            border: 4px solid #343E6B;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            span{
+                font-size: 1.8rem; 
+            }
+        }
+    }
+
+.historial {
+    p{  
+        display: flex;
+        
+        justify-content: flex-start;
+        padding: 20px 50px;
+        width: 100%;
+        color: #8598cd;
+        border-bottom: 2px solid #343E6B;
     }
 }

@@ -20,7 +20,12 @@ main {
   min-height: 100vh;
   max-width: 100vw;
   background-color: #2d2d2d;
-  padding: 0 20px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 header {
@@ -61,80 +66,161 @@ footer {
   border-top: 10px double #8598cd;
 }
 
-main {
-  padding: 40px;
-}
-main section {
-  border-radius: 50px;
-  background-color: #8598cd;
-  height: 80vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "dolar" "euro" "real" "libra";
-}
-main section .dolar,
-main section .euro,
-main section .libra,
-main section .real {
+#sectionCotizacion {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
-main section .dolar h2,
-main section .euro h2,
-main section .libra h2,
-main section .real h2 {
-  font-size: 50px;
+#sectionCotizacion #cotizacion {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  flex-direction: column;
+}
+#sectionCotizacion #cotizacion #intro {
+  display: flex;
+  gap: 5rem;
+  background-color: #343E6B;
   justify-content: center;
-  color: #2d2d2d;
-  border-bottom: 5px solid #2d2d2d;
+  align-items: center;
+  padding: 0 5rem;
+  border-radius: 1rem;
+  height: 3rem;
 }
-main section .dolar img,
-main section .euro img,
-main section .libra img,
-main section .real img {
-  height: 50%;
-  width: 80%;
-  margin: 20px;
-  border-radius: 10px;
+#sectionCotizacion #cotizacion #intro div {
+  position: absolute;
+  width: 100%;
+  border-bottom: 10px solid #343E6B;
 }
-main section .dolar .compraYventa,
-main section .euro .compraYventa,
-main section .libra .compraYventa,
-main section .real .compraYventa {
-  display: grid;
-  display: flex;
+#sectionCotizacion #cotizacion #intro h2, #sectionCotizacion #cotizacion #intro p {
+  display: inline-flex;
   flex-direction: row;
+  font-size: 2.2rem;
+  color: #8598cd;
+  position: relative;
 }
-main section .dolar .compraYventa .tipo .compra,
-main section .dolar .compraYventa .tipo .venta,
-main section .euro .compraYventa .tipo .compra,
-main section .euro .compraYventa .tipo .venta,
-main section .libra .compraYventa .tipo .compra,
-main section .libra .compraYventa .tipo .venta,
-main section .real .compraYventa .tipo .compra,
-main section .real .compraYventa .tipo .venta {
-  font-size: 30px;
-  padding: 10px;
-  border: 1px solid #343E6B;
-  color: #343E6B;
+#sectionCotizacion #moneda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-main section .dolar .compraYventa .precios .precioCompra,
-main section .dolar .compraYventa .precios .precioVenta,
-main section .euro .compraYventa .precios .precioCompra,
-main section .euro .compraYventa .precios .precioVenta,
-main section .libra .compraYventa .precios .precioCompra,
-main section .libra .compraYventa .precios .precioVenta,
-main section .real .compraYventa .precios .precioCompra,
-main section .real .compraYventa .precios .precioVenta {
-  font-size: 30px;
-  padding: 10px;
-  border: 1px solid #343E6B;
+#sectionCotizacion #moneda .tipoMoneda {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  border-bottom: 2px solid #8598cd;
+  height: 4rem;
+}
+#sectionCotizacion #moneda .tipoMoneda h3, #sectionCotizacion #moneda .tipoMoneda p {
+  font-size: 2rem;
+  color: #8598cd;
+}
+
+p {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+h2, h3 {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.cotizacionDelDia {
+  justify-content: center;
+  font-size: 4rem;
+  display: flex;
+  padding-bottom: 10px;
   color: #343E6B;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+  width: auto;
+}
+
+#realizarCambio {
+  padding-top: 5rem;
+}
+#realizarCambio article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 10px solid #343E6B;
+}
+#realizarCambio article div {
+  display: flex;
+  padding: 0 1rem;
+  font-size: 1.6rem;
+  align-items: baseline;
+}
+#realizarCambio article div select {
+  font-size: 1.6rem;
+  border-radius: 10px;
+  background-color: #8598cd;
+  width: 20rem;
+  border: 0;
+}
+#realizarCambio #cantidad-monto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#realizarCambio #cantidad-monto label {
+  position: absolute;
+  padding: 0 10px;
+  align-self: flex-start;
+}
+#realizarCambio #cantidad-monto input {
+  border: 0;
+  margin: 0;
+  font-size: 1.6rem;
+  border-radius: 10px;
+  background-color: #8598cd;
+  padding-left: 25px;
+  margin-left: 2px;
+  width: 20rem;
+}
+#realizarCambio #cantidad-monto p {
+  padding-top: 5px;
+  font-size: 0.8rem;
+  width: max-content;
+}
+#realizarCambio #botones {
+  gap: 40px;
+}
+#realizarCambio #botones button {
+  font-size: 1.6rem;
+  border-radius: 10px;
+  background-color: #8598cd;
+  margin-top: 30px;
+  width: max-content;
+  padding: 5px 20px;
+}
+#realizarCambio #resultado {
+  margin: 2rem 0;
+  width: 60%;
+  height: 200px;
+  background-color: #8598cd;
+  border: 4px solid #343E6B;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#realizarCambio #resultado span {
+  font-size: 1.8rem;
+}
+
+.historial p {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px 50px;
+  width: 100%;
+  color: #8598cd;
+  border-bottom: 2px solid #343E6B;
 }
 
 /*# sourceMappingURL=style.css.map */
