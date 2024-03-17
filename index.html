@@ -23,57 +23,53 @@
 
 
     <main>
-        <section id="sectionCotizacion">
-            <p class="cotizacionDelDia">Cotización del día</p>
-            <div id="cotizacion">
-                <article id="intro">
-                        <div></div>
-                        <p>$</p>
-                        <h2>Moneda</h2>
-                        <p>Compra</p>
-                        <p>Venta</p>
-                </article>
-                <article id="moneda">
-    
-                </article>
+        <section class="box-cambio">
+            <div class="operacion">
+                <div class="select-moneda">
+                    <span>Tipo de moneda:</span>
+                    <select id="moneda">
+                        <option value="USD">Dólar Estadounidense</option>
+                        <option value="EUR">Euro</option>
+                        <option value="GBP">Libra esterlina</option>
+                        <option value="CLP">Peso Chileno</option>
+                        <option value="PYG">Peso Paraguayo</option>
+                        <option value="UYU">Peso Uruguayo</option>
+                        <option value="BRL">Real Brasileño</option>
+                        <option value="RUB">Rublo Ruso</option>
+                    </select>
+                </div>
+
+                <div class="select-opera">
+                    <span>Tipo de operacion:</span>
+                    <select name="cambio" id="change-type">
+                        <option value="comprar">Compra</option>
+                        <option value="vender">Venta</option>
+                    </select>
+                </div>
+
+                <div class="select-monto">
+                    <span>Monto:</span>
+                    <span><input type="text" inputmode="decimal" autocomplete="off" id="monto" value="100"></span>
+                    <span id="error" style="display: none;">Intreduza una cantidad valida</span>
+                </div>
+            </div>
+            
+            <div class="taza-op">
+                <div id="taza"></div>
+                <span id="monto-op"></span>
+            </div>
+                
+
+            <div class="botones">
+                <button type="button" id="realizar">Realizar</button>
+                <button type="button" id="borrar">Borrar Historial</button>
             </div>
         </section>
 
-        <section id="realizarCambio">
-            <article>
-                <div>
-                    <div>
-                        <select id="monedaSelect">
-                            <option selected disabled>Selecciona una moneda</option>
 
-                        </select>
-                    </div>
-                    <div>
-                        <select id="compra-venta">
-                            <option selected disabled>Selecciona una operación</option>
-                            <option value="comprar">Comprar</option>
-                            <option value="vender">Vender</option>
-                        </select>   
-                    </div>
-                    <div id="cantidad-monto">
-                        <label >$</label>
-                        <input id="monto" type="number">
-                        <p>*minimo de $100 por operación*</p>
-                        <p>**monto de la moneda seleccionada**</p>
-                    </div>
-                </div>
-                <div id="botones">
-                    <button id="click">Realizar</button>
-                    <button type="button" id="borrarH">Borrar historial</button>
-                </div>
-                <div id="resultado">
-                    <span id="resultadoOK" style="display: none;">¡¡Transacción realizada!!</span>
-                    <span id="resultadoTipo"></span>
-                </div>
-            </article>
-        </section>
 
-        <section class="historial">
+        <section id="histo">
+            <span>Historial</span>
             <article>
                 <div id="historial" style="display: flex; flex-direction: column-reverse;">
 
@@ -85,6 +81,9 @@
     <footer>
 
     </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="js/index.js"></script>
 </body>
