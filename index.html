@@ -28,14 +28,7 @@
                 <div class="select-moneda">
                     <span>Tipo de moneda:</span>
                     <select id="moneda">
-                        <option value="USD">Dólar Estadounidense</option>
-                        <option value="EUR">Euro</option>
-                        <option value="GBP">Libra esterlina</option>
-                        <option value="CLP">Peso Chileno</option>
-                        <option value="PYG">Peso Paraguayo</option>
-                        <option value="UYU">Peso Uruguayo</option>
-                        <option value="BRL">Real Brasileño</option>
-                        <option value="RUB">Rublo Ruso</option>
+
                     </select>
                 </div>
 
@@ -49,13 +42,18 @@
 
                 <div class="select-monto">
                     <span>Monto:</span>
-                    <span><input type="text" inputmode="decimal" autocomplete="off" id="monto" value="100"></span>
+                    <div>
+                        <input type="number" id="monto" value="100" autocomplete="off" >
+                    </div>
                     <span id="error" style="display: none;">Intreduza una cantidad valida</span>
                 </div>
             </div>
             
             <div class="taza-op">
-                <div id="taza"></div>
+                <div style="flex-direction: column;">
+                    <div id="taza" style="display: flex; flex-direction: row;"></div>
+                    <div id="taza2" style="display: flex; flex-direction: row;"></div>
+                </div>
                 <span id="monto-op"></span>
             </div>
                 

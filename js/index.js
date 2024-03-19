@@ -3,26 +3,48 @@ let change = document.getElementById('change-type');
 let monto = document.getElementById('monto');
 let montoOp = document.getElementById('monto-op');
 let taza = document.getElementById('taza');
-let realizar = document.getElementById('realizar')
-let error = document.getElementById('error')
+let taza2 = document.getElementById('taza2');
+let realizar = document.getElementById('realizar');
+let error = document.getElementById('error');
+let symbol = document.getElementById('symbol');
 
 
+function AddOptions() {
+    fetch('divisas.json')
+        .then(res => res.json())
+        .then(data => {
+            data.forEach(data => {
+                let monedaOption = document.createElement('option')
+                monedaOption.value = data.simbol
+                monedaOption.innerHTML =
+                    `
+                ${data.simbol} - ${data.name}
+                `
+                moneda.appendChild(monedaOption)
+            });
+        })
+}
+AddOptions()
 
 function realizarCambio() {
     fetch(`https://v6.exchangerate-api.com/v6/397d1bd4552b3a3c3315c574/latest/${moneda.value}`)
+    //fetch('test.json')
         .then(res => res.json())
         .then(data => {
             let cambio = data.conversion_rates.ARS;
             if (monto.value >= 1) {
                 realizar.disabled = false
                 error.style.display = "none"
-                let montoCurrency = new Intl.NumberFormat("es-sp").format(monto.value)
-                console.log(montoCurrency)
+                let montoCurrency = new Intl.NumberFormat().format(monto.value)
+                
+                
+                console.log(cambio)
+
                 if (change.value == "comprar") {
-                    let montoFinal = (monto.value * (cambio * 0.95)).toFixed(2);
-                    let montoCurrency2 = new Intl.NumberFormat("es-sp").format(montoFinal);
-                    console.log(montoFinal)
-                    taza.innerText = `1 ${moneda.value} = ${(cambio * 0.95).toFixed(5)} ARS`
+                    let montoFinal = (monto.value * (cambio)).toFixed(2);
+                    let montoCurrency2 = new Intl.NumberFormat().format(montoFinal);
+                    taza.innerHTML = `1&nbsp<p style="color: #8598cd;">${moneda.value}</p> &nbsp= ${(cambio).toFixed(6)}&nbsp<p style="color: #8598cd";">ARS</p>`
+                    taza2.innerHTML = `1 ARS = ${(1/(cambio)).toFixed(6)} ${moneda.value}`
                     realizar.addEventListener("click", function () {
                         montoOp.innerText = `Compra realizada: ${montoCurrency} ${moneda.value} por un valor de $${montoCurrency2} ARS`
                         localStorage.setItem('localHist', montoOp.outerText);
@@ -44,9 +66,10 @@ function realizarCambio() {
                         });
                     })
                 } else if (change.value == "vender") {
-                    let montoFinal = (monto.value * (cambio * 1.05)).toFixed(2);
-                    let montoCurrency2 = new Intl.NumberFormat("es-sp").format(montoFinal);
-                    taza.innerText = `1 ${moneda.value} = ${(cambio * 1.05).toFixed(5)} ARS`
+                    let montoFinal = (monto.value * (cambio * 0.95)).toFixed(2);
+                    let montoCurrency2 = new Intl.NumberFormat().format(montoFinal);
+                    taza.innerHTML= `1&nbsp<p style="color: #8598cd";">${moneda.value}</p> &nbsp= ${(cambio * 0.95).toFixed(6)}&nbsp<p style="color: #8598cd";">ARS</p>`
+                    taza2.innerHTML = `1 ARS = ${(1/(cambio * 1.05)).toFixed(6)} ${moneda.value}`
                     realizar.addEventListener("click", function () {
                         montoOp.innerText = `Venta realizada: ${montoCurrency} ${moneda.value} por un valor de $${montoCurrency2} ARS`
                         localStorage.setItem('localHist', montoOp.outerText);
@@ -81,21 +104,27 @@ moneda.addEventListener('change', realizarCambio);
 monto.addEventListener('input', realizarCambio);
 
 
+
 const historial = document.getElementById('historial');
 let historialText;
 let fecha = new Date();
-let fecha2 = fecha.toLocaleString();
+let año = fecha.getFullYear()
+let mes = fecha.getMonth()
+let dia = fecha.getDate()
+let hora = fecha.getHours()
+let minuto = ((fecha.getMinutes() < 10 ? '0' : '') + fecha.getMinutes())
 
 historial.innerHTML = localStorage.getItem('localHist2')
 realizar.addEventListener('click', function () {
     setTimeout((
         function asd() {
-            let historialText = document.createElement('p');
-            historialText.innerHTML =
+            let historialTime = document.createElement('div');
+            historialTime.innerHTML =
                 `
-            ${fecha2} --- ${localStorage.getItem('localHist')} ---
+            <span>${dia}/${mes + 1}/${año} -- ${hora}:${minuto}</span>
+            <p>${localStorage.getItem('localHist')}</p>
             `
-            historial.appendChild(historialText);
+            historial.appendChild(historialTime);
             localStorage.setItem('localHist2', historial.innerHTML);
         }), 100)
 })

@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 a, li {
@@ -78,7 +79,7 @@ main .box-cambio {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
   width: 60vw;
   background-color: aliceblue;
   border-radius: 12px;
@@ -88,6 +89,7 @@ main .box-cambio {
 main .box-cambio .operacion {
   width: 100%;
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
   padding: 0 100px;
 }
@@ -100,7 +102,8 @@ main .box-cambio .operacion .select-moneda {
 main .box-cambio .operacion .select-moneda #moneda {
   font-size: 1.2rem;
   padding-right: 50px;
-  width: 300px;
+  width: 350px;
+  color: #2d2d2d;
 }
 main .box-cambio .operacion .select-opera {
   display: flex;
@@ -110,16 +113,23 @@ main .box-cambio .operacion .select-opera {
 }
 main .box-cambio .operacion .select-opera #change-type {
   font-size: 1.2rem;
-  width: 200px;
+  width: 180px;
+  color: #2d2d2d;
 }
 main .box-cambio .operacion .select-monto {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+main .box-cambio .operacion .select-monto #symbol {
+  position: absolute;
+  text-align: center;
+  font-size: 1.2rem;
+}
 main .box-cambio .operacion .select-monto #monto {
   font-size: 1.2rem;
-  width: 300px;
+  width: 250px;
+  color: #646464;
 }
 main .box-cambio .taza-op {
   width: 100%;
@@ -130,8 +140,12 @@ main .box-cambio .taza-op {
   padding: 0 100px;
 }
 main .box-cambio .taza-op #taza {
-  justify-content: right;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  padding-bottom: 5px;
+  color: #2d2d2d;
+}
+main .box-cambio .taza-op #taza2 {
+  color: #646464;
 }
 main .box-cambio .taza-op #monto-op {
   font-size: 1.2rem;
@@ -172,9 +186,28 @@ main #histo span {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
+  border-bottom: 1px solid #8598cd;
 }
-main #histo p {
-  padding: 10px;
+main #histo article {
+  width: 100%;
+}
+main #histo article #historial {
+  width: 100%;
+}
+main #histo article #historial div {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #8598cd;
+}
+main #histo article #historial div span {
+  font-size: 1rem;
+  width: fit-content;
+  padding-left: 40px;
+  padding-right: 80px;
+  border-bottom: none;
+}
+main #histo article #historial div p {
+  font-size: 1rem;
 }
 
 select, button, input {
